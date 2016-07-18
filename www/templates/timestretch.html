@@ -1,0 +1,43 @@
+<ion-view view-title="Time-Stretch" ng-controller="TimeStretchCtrl">
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <!-- Original BPM -->
+        <label class="item item-input">
+          <span class="input-label">Original BPM:</span>
+          <input ng-model="original.value" ng-change="updateStretch()" type="text" placeholder="100.0">
+        </label>
+        <div class="item range">
+          <i ng-click="original.value = original.value - 1;updateStretch()" class="icon ion-minus-round"></i>
+          <input ng-model="original.value" ng-change="updateStretch()" type="range" name="original-bpm" min="30" max="300">
+          <i ng-click="original.value = original.value + 1;updateStretch()" class="icon ion-plus-round"></i>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <!-- Desired BPM -->
+        <label class="item item-input">
+          <span class="input-label">Desired BPM:</span>
+          <input ng-model="desired.value" ng-change="updateStretch()" type="text" placeholder="100.0">
+        </label>
+        <div class="item range">
+          <i ng-click="desired.value = desired.value - 1;updateStretch()" class="icon ion-minus-round"></i>
+          <input ng-model="desired.value" ng-change="updateStretch()" type="range" name="desired-bpm" min="30" max="300">
+          <i ng-click="desired.value = desired.value + 1;updateStretch()" class="icon ion-plus-round"></i>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <!-- Stretch change -->
+        <label class="item item-input">
+          <span class="input-label">Time-Stretch:</span>
+          <input ng-model="stretch.value" ng-change="updateStretch()" type="text" placeholder="100.0">
+        </label>
+        <div class="item range">
+          <i ng-click="stretch.value = stretch.value - 1;updateTempo()" class="icon ion-minus-round"></i>
+          <input ng-model="stretch.value" ng-change="updateTempo()" type="range" name="stretch-change" min="0" max="300">
+          <i ng-click="stretch.value = stretch.value + 1;updateTempo()" class="icon ion-plus-round"></i>
+        </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

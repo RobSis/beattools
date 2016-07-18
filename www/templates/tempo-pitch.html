@@ -1,0 +1,44 @@
+<ion-view view-title="Tempo-To-Pitch" ng-controller="TempoPitchCtrl">
+  <ion-content>
+    <ion-list>
+      <ion-item>
+          <!-- Original BPM -->
+          <label class="item item-input">
+            <span class="input-label">Original BPM:</span>
+            <input ng-model="original.value" ng-change="updatePitch()" type="text" placeholder="100.0">
+          </label>
+          <div class="item range">
+            <i ng-click="original.value = original.value - 1;updatePitch()" class="icon ion-minus-round"></i>
+            <input ng-model="original.value" ng-change="updatePitch()" type="range" name="original-bpm" min="30" max="300" class="green">
+            <i ng-click="original.value = original.value + 1;updatePitch()" class="icon ion-plus-round"></i>
+          </div>
+      </ion-item>
+
+      <ion-item>
+          <!-- Desired BPM -->
+          <label class="item item-input">
+            <span class="input-label">Desired BPM:</span>
+            <input ng-model="desired.value" ng-change="updatePitch()" type="text" placeholder="100.0">
+          </label>
+          <div class="item range">
+            <i ng-click="desired.value = desired.value - 1;updatePitch()" class="icon ion-minus-round"></i>
+            <input ng-model="desired.value" ng-change="updatePitch()" type="range" name="desired-bpm" min="30" max="300">
+            <i ng-click="desired.value = desired.value + 1;updatePitch()" class="icon ion-plus-round"></i>
+          </div>
+      </ion-item>
+
+      <ion-item>
+          <!-- Pitch change -->
+          <label class="item item-input">
+            <span class="input-label">Pitch change:</span>
+            <input ng-model="pitch.value" ng-change="updateTempo()" type="text" placeholder="+0.0">
+          </label>
+          <div class="item range">
+            <i ng-click="pitch.value = pitch.value - 1;updateTempo()" class="icon ion-minus-round"></i>
+            <input ng-model="pitch.value" ng-change="updateTempo()" type="range" name="pitch-change" min="-20" max="20">
+            <i ng-click="pitch.value = pitch.value + 1;updateTempo()" class="icon ion-plus-round"></i>
+          </div>
+        </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

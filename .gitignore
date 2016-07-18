@@ -1,0 +1,11 @@
+.tmp
+.sass-cache
+*.swp
+*.swo
+*.log
+*.DS_Store
+*.apk
+platforms/
+plugins/
+resources/
+www/lib

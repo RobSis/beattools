@@ -1,0 +1,55 @@
+<ion-view view-title="Delay Time" ng-controller="DelayTimeCtrl">
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <!-- BPM -->
+        <label class="item item-input">
+          <span class="input-label">BPM:</span>
+          <input ng-model="bpm.value" ng-change="updateDelay()" type="text" placeholder="100.0">
+        </label>
+        <div class="item range">
+          <i ng-click="bpm.value = bpm.value - 1;updateDelay()" class="icon ion-minus-round"></i>
+          <input ng-model="bpm.value" ng-change="updateDelay()" type="range" name="bpm" min="30" max="300">
+          <i ng-click="bpm.value = bpm.value + 1;updateDelay()" class="icon ion-plus-round"></i>
+        </div>
+      </ion-item>
+
+      <ion-item>
+        <!-- Note length -->
+        <label class="item item-input">
+            <span class="input-label">Note length:</span>
+            <input ng-model="namedLength" ng-readonly="true" ng-click="modal.show()" type="text">
+        </label>
+      </ion-item>
+
+      <ion-item>
+        <!-- Delay time -->
+        <label class="item item-input">
+          <span class="input-label">Delay-Time:</span>
+          <input ng-model="delay.value" type="text" placeholder="0.0">
+        </label>
+        <div class="item range">
+          <i ng-click="delay.value = delay.value - 1;updateBpm()" class="icon ion-minus-round"></i>
+          <input ng-model="delay.value" ng-change="updateBpm()" type="range" name="delay" min="30" max="2000">
+          <i ng-click="delay.value = delay.value + 1;updateBpm()" class="icon ion-plus-round"></i>
+        </div>
+      </ion-item>
+
+<script id="note-length.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar>
+      <a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="modal.hide()">Back</a>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item ng-repeat="item in options" ng-click="setLength({{item}})">
+          <ion-label>{{item.name}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+    </ion-list>
+  </ion-content>
+</ion-view>

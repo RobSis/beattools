@@ -1,0 +1,36 @@
+/* Empty. Add your own CSS if you like */
+label input[type="number"] {
+    text-align:right;
+    padding-right: 30px;
+    background-color: white !important;
+}
+label input[type="text"] {
+    text-align:right;
+    padding-right: 30px;
+    background-color: white !important;
+}
+label input{
+    font-size:4.5vmin !important;
+    background-color: white !important;
+}
+label select{
+    font-size:4.5vmin !important;
+    background-color: white !important;
+}
+label span{
+    font-size:4.5vmin !important;
+}
+.bar-header {
+    background-color: #4caf51 !important;
+    box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+    /*007968*/
+}
+.bar-header a {
+    color: #fff !important;
+}
+.header-item, .title, .ion-navicon {
+    color: #fff !important;
+}
+.item-input, .range {
+    box-shadow: 0px 5px 5px rgba(0,0,0,0.2);
+}

@@ -1,0 +1,93 @@
+<ion-view view-title="BPM Calculator" ng-controller="BpmCalcCtrl">
+  <ion-content>
+    <ion-list>
+      <ion-item>
+        <!-- Measures -->
+        <label class="item item-input">
+            <span class="input-label">Measures:</span>
+            <input ng-model="measures" ng-readonly="true" ng-click="modalMeasures.show()" type="text">
+        </label>
+      </ion-item>
+
+      <ion-item>
+        <!-- Beat -->
+        <label class="item item-input">
+            <span class="input-label">Beat:</span>
+            <input ng-model="namedBeat" ng-readonly="true" ng-click="modalBeat.show()" type="text">
+        </label>
+      </ion-item>
+
+      <ion-item>
+        <!-- Length -->
+        <label class="item item-input">
+          <span class="input-label">Length:</span>
+          <input type="text" value="{{length}}">
+        </label>
+        <!-- Format -->
+        <label class="item item-input">
+            <span class="input-label">&nbsp;</span>
+            <input ng-model="namedUnits" ng-readonly="true" ng-click="modalUnits.show()" type="text">
+        </label>
+      </ion-item>
+
+      <ion-item>
+        <!-- BPM -->
+        <label class="item item-input">
+          <span class="input-label">BPM:</span>
+          <input type="text" placeholder="100.0">
+        </label>
+        <div class="item range">
+          <i class="icon ion-minus-round"></i>
+          <input type="range" name="original-bpm" min="30" max="300">
+          <i class="icon ion-plus-round"></i>
+        </div>
+      </ion-item>
+
+<script id="measures.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar>
+      <a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="modalMeasures.hide()">Back</a>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item ng-repeat="item in measureValues" ng-click="setMeasure('{{item}}')">
+          <ion-label>{{item}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+<script id="beat.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar>
+      <a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="modalBeat.hide()">Back</a>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item ng-repeat="item in beatValues" ng-click="setBeat({{item}})">
+          <ion-label>{{item.name}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+<script id="units.html" type="text/ng-template">
+  <ion-modal-view>
+    <ion-header-bar>
+      <a class="button icon-left ion-chevron-left button-clear button-dark" ng-click="modalUnits.hide()">Back</a>
+    </ion-header-bar>
+    <ion-content>
+      <ion-list>
+        <ion-item ng-repeat="item in unitValues" ng-click="setUnits({{item}})">
+          <ion-label>{{item.name}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-modal-view>
+</script>
+
+    </ion-list>
+  </ion-content>
+</ion-view>
